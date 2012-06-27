@@ -183,7 +183,7 @@ didExpire = function(req) {
 		now = new Date().getTime();
 
 	if((now - req.session.startTime) > maxTime) {
-		res.session.destroy();
+		req.session.destroy();
 		return true;
 	}
 
