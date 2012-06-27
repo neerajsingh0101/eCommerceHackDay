@@ -1,12 +1,14 @@
 var cfg = require('./vars'),
 	express = require('express'),
 	app = express.createServer(express.logger()),
-	$ = require('seq');
+	$ = require('seq'),
+	redis = require('connect-redis')(express),
+	redisStore = new redis(cfg.redisCfg);
 
 // App Definitions
 app.use(express.cookieParser());
 app.use(express.bodyParser());
-app.use(express.session({ secret: 'secret' }));
+app.use(express.session({ secret: "ehdpuzzle", store: redisStore }));
 app.use("/assets", express.static(__dirname + '/assets'));
 
 // General error handling fn
@@ -107,27 +109,33 @@ app.post('/ImAHacker', function(req, res) {
 			}
 
 			if(validateEmail(req.session.email)) {
-				req.session.destroy();
-
 				$()
 					.seq(function() {
 						var	SendGrid = require('sendgrid').SendGrid,
 							sendgrid = new SendGrid('schonfeld', 'Passw64!'),
 							top = this;
 
-						var htmlStr = 'Someone solved our puzzle...';
+						var htmlStr = "Someone solved our puzzle... Here's the person's info: <br/>";
+						htmlStr += "<br/>";
+						htmlStr += "Name: " + req.session.name + "<br/>";
+						htmlStr += "Email: " + req.session.email + "<br/>";
+						htmlStr += "RSVP?: " + req.session.rsvp + "<br/>";
+						htmlStr += "Start Time: " + new Date(req.session.startTime) + "<br/>";
+						htmlStr += "Total Time: " + time + "<br/>";
 
 						sendgrid.send({
 							to: 'michael@dwolla.com',
 							from: 'puzzle@ecommercehackday.com',
 							fromName: 'EHD Puzzle',
-							subject: 'Someone solved the EHD puzzle',
+							subject: "Someone solved the EHD puzzle.",
 							html: htmlStr
 						}, function(success, message) {
 							top.ok();
 						});
 					})
 					.seq(function() {
+						req.session.destroy();
+
 						return res.send({
 							success: true,
 							message: "Thanks! If you we're in the first 200 to solve this puzzle, you'll receive your ticket soon. If not, you'll be automatically added to the waitlist. Talk soon!",
