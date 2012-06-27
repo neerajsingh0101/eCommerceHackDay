@@ -2,11 +2,14 @@
 #reset > .global-reset();
 
 body {
+	background-image: url(../images/body-bg.png);
+	color:#3d4348;
 	text-align: center;
 }
 
 #logo {
 	display: inline-block;
+	position:relative;
 	
 	img {
 		height: 300px;
@@ -26,26 +29,23 @@ hr {
 .content {
 	h3 {
 		#font > .sans-serif(300, 36px, 40px);
-		color: #111;
+		color: #3d4348;
 		text-shadow: #fff 0 1px 1px;
 		padding: 0;
 	}
 	p {
-		#font > .sans-serif(normal, 16px, 20px);
-		color: #222;
-		text-shadow: #fff 0 1px 1px;
+		#font > .sans-serif(normal, 18px, 22px);
+		color: #fff;
 		padding: 0 0 10px;
 	}
 
 	.buttons {
-		padding: 0 0 10px;
+		padding: 10px 0;
 		
 		p {
 			#font > .sans-serif(normal, 16px, 20px);
-			color: #555;
-			text-shadow: #fff 0 1px 1px;
+			color: #fff;
 			padding: 0 0 10px;
-			font-style: italic;
 		}
 
 		a {
@@ -53,7 +53,15 @@ hr {
 			font-size: 20px;
 			padding: 10px 20px;
 			margin: 0 10px;
+			font-family:"Arial";
 		}
+	}
+	
+	.info {
+		background:#3d4348;
+		margin:20px 0;
+		padding:20px 0;
+		width:100%;
 	}
 	
 	.info {
@@ -65,7 +73,7 @@ hr {
 	.logos {
 		padding: 20px 0 10px;
 		margin: 0 auto;
-		width: 960px;
+		width: 820px;
 
 		p {
 			font-style: italic;
