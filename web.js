@@ -45,7 +45,7 @@ app.post('/ImAHacker', function(req, res) {
 
 			return res.send({
 				success: true,
-				message: "Nice job, now let's get started! You'll have 5 minutes from now to complete this puzzle. After that, your session will expire, and you'll need to start over. To start, reply with your code in the 'code' parameter, and your full name in the 'name' parameter."
+				message: "Nice job, now let's get started! You'll have 10 minutes from now to complete this puzzle. After that, your session will expire, and you'll need to start over. To start, reply with your full name in the 'name' parameter."
 			});
 		} else {
 			// *************
