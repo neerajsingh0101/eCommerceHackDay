@@ -172,7 +172,7 @@ app.post('/ImAHacker', function(req, res) {
 		// *************
 		// Session expired
 		// *************
-		return res.send({success: false, message: 'Your session has expired.'});
+		return res.send({success: false, message: 'Your session has expired. You should try restarting the puzzle.'});
 	}
 });
 
