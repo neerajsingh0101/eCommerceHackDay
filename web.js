@@ -124,7 +124,7 @@ app.post('/ImAHacker', function(req, res) {
 						htmlStr += "Total Time: " + time + "<br/>";
 
 						sendgrid.send({
-							to: 'michael@dwolla.com',
+							to: ['michael@dwolla.com', 'alext@dwolla.com', 'nicole@dwolla.com'],
 							from: 'puzzle@ecommercehackday.com',
 							fromName: 'EHD Puzzle',
 							subject: "Someone solved the EHD puzzle.",
