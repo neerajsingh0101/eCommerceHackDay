@@ -157,7 +157,8 @@ app.post('/ImAHacker', function(req, res) {
 					.seq(function() {
 						return res.send({
 							success: true,
-							message: "Thanks for playing!",
+							message: "Thanks for playing! In the meanwhile, why don't you share your achievement on FB + Twitter and help us spread the good word? Head over to the 'url' parameter.",
+							url: 'http://ecommercehackday.com/share',
 							totalTime: time
 						});
 					})
