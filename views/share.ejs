@@ -25,57 +25,57 @@
 			<div id="footer">
 				<a href="mailto:alext@dwolla.com">Questions?</a>  &bull;  <a href=" https://twitter.com/#!/ecommercehackny">@ecommercehackny</a>
 			</div>
-
-			<!-- facebook js sdk -->
-			<script src="//connect.facebook.net/en_US/all.js"></script>
-			<div id="fb-root"></div>
-			<script>
-			window.fbAsyncInit = function() {
-				FB.init({
-					appId: '460972663915729',
-					redirect_uri: 'http://ecommercehackday.com'
-				});
-			};
-			</script>
-
-			<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-			<script type="text/javascript">
-			var share_fb = function() {
-				FB.ui(
-				  {
-				    method: 'feed',
-				    name: 'eCommerce Hack Day',
-				    link: 'http://ecommercehackday.com',
-				    picture: 'http://ecommercehackday.com/assets/images/fb_icon.jpg',
-				    caption: 'eCommerce Hack Day Developers Puzzle',
-				    description: "I solved the eCommerce Hack Day puzzle. Are you good enough? Find out more at ecommercehackday.com",
-				    redirect_uri: 'http://ecommercehackday.com/selfclose'
-				  },
-				  function(response) {
-
-				  }
-				);
-
-				return false;
-			}
-
-			var share_tw = function() {
-				var width  = 575,
-				    height = 400,
-				    left   = ($(window).width()  - width)  / 2,
-				    top    = ($(window).height() - height) / 2,
-				    url    = 'http://twitter.com/share?url=' + encodeURI('http://ecommercehackday.com') + '&text=' + encodeURI("I solved the eCommerce Hack Day puzzle. Are you good enough? #eCommerceHackDay Find out more at"),
-				    opts   = 'status=1' +
-				             ',width='  + width  +
-				             ',height=' + height +
-				             ',top='    + top    +
-				             ',left='   + left;
-				
-				window.open(url, 'twitter', opts);
-
-				return false;
-			}
-			</script>
 		</div>
+		
+		<!-- facebook js sdk -->
+		<script src="//connect.facebook.net/en_US/all.js"></script>
+		<div id="fb-root"></div>
+		<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId: '460972663915729',
+				redirect_uri: 'http://ecommercehackday.com'
+			});
+		};
+		</script>
+
+		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+		var share_fb = function() {
+			FB.ui(
+			  {
+			    method: 'feed',
+			    name: 'eCommerce Hack Day',
+			    link: 'http://ecommercehackday.com',
+			    picture: 'http://ecommercehackday.com/assets/images/fb_icon.jpg',
+			    caption: 'eCommerce Hack Day Developers Puzzle',
+			    description: "I solved the eCommerce Hack Day puzzle. Are you good enough? Find out more at ecommercehackday.com",
+			    redirect_uri: 'http://ecommercehackday.com/selfclose'
+			  },
+			  function(response) {
+
+			  }
+			);
+
+			return false;
+		}
+
+		var share_tw = function() {
+			var width  = 575,
+			    height = 400,
+			    left   = ($(window).width()  - width)  / 2,
+			    top    = ($(window).height() - height) / 2,
+			    url    = 'http://twitter.com/share?url=' + encodeURI('http://ecommercehackday.com') + '&text=' + encodeURI("I solved the eCommerce Hack Day puzzle. Are you good enough? Find out more at") + '&hashtags=' + encodeURI('eCommerceHackDay'),
+			    opts   = 'status=1' +
+			             ',width='  + width  +
+			             ',height=' + height +
+			             ',top='    + top    +
+			             ',left='   + left;
+			
+			window.open(url, 'twitter', opts);
+
+			return false;
+		}
+		</script>
 	</body>
 </html>
