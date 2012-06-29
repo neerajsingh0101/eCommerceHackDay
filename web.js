@@ -91,14 +91,32 @@ app.post('/ImAHacker', function(req, res) {
 				req.session.email = req.body.email;
 				req.session.step2 = true;
 
+				function getClientIp(req) {
+					var ipAddress;
+
+					var forwardedIpsStr = req.header('x-forwarded-for'); 
+
+					if (forwardedIpsStr) {
+						var forwardedIps = forwardedIpsStr.split(',');
+						ipAddress = forwardedIps[0];
+					}
+
+					if (!ipAddress) {
+						ipAddress = req.connection.remoteAddress;
+					}
+
+					return ipAddress;
+				};
+
+
 				$()
 					.seq(function() {
 						var top = this;
 
 						var query = mysqlStore.query(
-							'INSERT INTO hackers (email, startTime, rsvp) '+
-							'VALUES (?, ?, ?)',
-							[req.session.email, new Date(req.session.startTime), 'no'],
+							'INSERT INTO hackers (email, startTime, rsvp, ip) '+
+							'VALUES (?, ?, ?, ?)',
+							[req.session.email, new Date(req.session.startTime), 'no', getClientIp(req)],
 							function(err, info) {
 								req.session.mysqlId = info.insertId;
 								top.ok();
