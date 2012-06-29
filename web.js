@@ -31,6 +31,9 @@ app.get('/', function(req, res) {
 	return res.render('index.ejs');
 });
 
+app.get('/share', function(req, res) {
+	return res.render('share.ejs');
+});
 
 app.get('/ImAHacker', function(req, res) {
 	return res.send({success: false, message: "Method not implemented. Maybe you should try that endpoint with a POST type?"});	
@@ -223,7 +226,8 @@ app.post('/ImAHacker', function(req, res) {
 	
 						return res.send({
 							success: true,
-							message: "Thanks! If you we're in the first 200 to solve this puzzle, you'll receive your ticket soon. If not, you'll be automatically added to the waitlist. Talk soon!",
+							message: "Thanks! If you we're in the first 200 to solve this puzzle, you'll receive your ticket soon. If not, you'll be automatically added to the waitlist. In the meanwhile, why don't you share your achievement on FB + Twitter and help us spread the good word? Head over to the 'url' parameter. Talk soon!",
+							url: 'http://ecommercehackday.com/share',
 							totalTime: time
 						});
 					})
