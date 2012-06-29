@@ -10,7 +10,7 @@ var cfg = require('./vars'),
 // App Definitions
 app.use(express.cookieParser());
 app.use(express.bodyParser());
-app.use(express.session({ secret: "ehdpuzzle", store: redisStore, cookie: { maxAge: 1000 * 60 * 0.5 } })); // 11 minutes [failsafe]
+app.use(express.session({ secret: "ehdpuzzle", store: redisStore, cookie: { maxAge: 1000 * 60 * 11 } })); // 11 minutes [failsafe]
 app.use("/assets", express.static(__dirname + '/assets'));
 
 // General error handling fn
