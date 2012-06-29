@@ -32,7 +32,8 @@
 			<script>
 			window.fbAsyncInit = function() {
 				FB.init({
-					appId: '460972663915729'
+					appId: '460972663915729',
+					redirect_uri: 'http://ecommercehackday.com'
 				});
 			};
 			</script>
@@ -47,7 +48,8 @@
 				    link: 'http://ecommercehackday.com',
 				    picture: 'http://ecommercehackday.com/assets/images/fb_icon.jpg',
 				    caption: 'eCommerce Hack Day Developers Puzzle',
-				    description: "I solved the eCommerce Hack Day puzzle. Are you good enough? Find out more at ecommercehackday.com"
+				    description: "I solved the eCommerce Hack Day puzzle. Are you good enough? Find out more at ecommercehackday.com",
+				    redirect_uri: 'http://ecommercehackday.com'
 				  },
 				  function(response) {
 
@@ -62,7 +64,7 @@
 				    height = 400,
 				    left   = ($(window).width()  - width)  / 2,
 				    top    = ($(window).height() - height) / 2,
-				    url    = 'http://twitter.com/share?url=' + encodeURI('http://ecommercehackday.com') + '&text=' + encodeURI("I just solved the eCommerce Hack Day developers' puzzle, and will be headed"),
+				    url    = 'http://twitter.com/share?url=' + encodeURI('http://ecommercehackday.com') + '&text=' + encodeURI("I solved the eCommerce Hack Day puzzle. Are you good enough? Find out more at "),
 				    opts   = 'status=1' +
 				             ',width='  + width  +
 				             ',height=' + height +
