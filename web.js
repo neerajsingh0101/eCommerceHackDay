@@ -35,6 +35,10 @@ app.get('/share', function(req, res) {
 	return res.render('share.ejs');
 });
 
+app.get('/selfclose', function(req, res) {
+	return res.render('selfclose.ejs');
+});
+
 app.get('/ImAHacker', function(req, res) {
 	return res.send({success: false, message: "Method not implemented. Maybe you should try that endpoint with a POST type?"});	
 });
