@@ -18,14 +18,13 @@ module.exports = function(app) {
 	// **********************
 	// BEGIN PUZZLE ROUTES
 	// **********************
-/*
 	app.get('/ImAHacker', function(req, res) {
 		return res.send({
 			success: false,
 			message: "Method not implemented. Maybe you should try that endpoint with a POST type?"
 		});
 	});
-	
+
 	app.post('/ImAHacker', function(req, res) {
 		if(!req.session.startTime && req.body.action) {
 			if(req.body.action == 'getCode') {
@@ -265,7 +264,6 @@ module.exports = function(app) {
 		}
 	});
 
-
 	// *******************************
 	// Checks if a puzzle session
 	// has expired. If so, destorys
@@ -287,5 +285,4 @@ module.exports = function(app) {
 		return false;
 	}
 	
-*/
 }
